@@ -1,37 +1,203 @@
-# Dependencies
+# ==========================================
+# Node.js & Express
+# ==========================================
 node_modules/
-
-# Environment variables
-.env
-.env.local
-.env.*.local
-
-# Logs
-logs
-*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# OS files
-.DS_Store
-Thumbs.db
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Build output
-dist/
-build/
-.next/
-out/
-
-# Testing
-coverage/
-
-# Optional: Lock files (usually keep these)
+# Dependency lock files (optional - usually keep these)
 # package-lock.json
 # yarn.lock
+# pnpm-lock.yaml
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Logs
+logs/
+*.log
+
+# ==========================================
+# Environment Variables & Secrets
+# ==========================================
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.*.local
+*.env
+
+# Configuration files with secrets
+config/secrets.yml
+config/database.yml
+config/production.json
+secrets.json
+
+# ==========================================
+# MongoDB
+# ==========================================
+# MongoDB data directory
+data/
+data/db/
+mongodb/
+mongo-data/
+*.mongo
+
+# MongoDB dumps
+dump/
+*.bson
+
+# MongoDB logs
+mongod.log
+mongo.log
+
+# ==========================================
+# PostgreSQL
+# ==========================================
+# PostgreSQL data directory
+postgres-data/
+postgresql-data/
+pgdata/
+
+# PostgreSQL logs
+postgres.log
+postgresql.log
+*.pgsql
+
+# PostgreSQL backup files
+*.sql
+*.dump
+*.backup
+
+# pg_dump files
+pg_dump_*
+
+# ==========================================
+# Redis
+# ==========================================
+# Redis data directory
+redis-data/
+dump.rdb
+appendonly.aof
+*.rdb
+*.aof
+
+# Redis logs
+redis.log
+redis-server.log
+
+# Redis configuration (if contains passwords)
+redis.conf
+
+# ==========================================
+# Database General
+# ==========================================
+# SQLite
+*.sqlite
+*.sqlite3
+*.db
+
+# Database backups
+backups/
+*.backup
+*.bak
+
+# ==========================================
+# Build & Distribution
+# ==========================================
+dist/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+
+# ==========================================
+# Testing & Coverage
+# ==========================================
+coverage/
+.nyc_output/
+*.lcov
+.jest/
+
+# ==========================================
+# OS Generated Files
+# ==========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ==========================================
+# IDE & Editors
+# ==========================================
+# VSCode
+.vscode/
+*.code-workspace
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+.vim/
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ==========================================
+# Docker (optional - if using Docker)
+# ==========================================
+# docker-compose.override.yml
+
+# ==========================================
+# Temporary Files
+# ==========================================
+tmp/
+temp/
+*.tmp
+*.temp
+
+# ==========================================
+# SSL Certificates & Keys
+# ==========================================
+*.pem
+*.key
+*.cert
+*.crt
+*.ca-bundle
+ssl/
+
+# ==========================================
+# Session & Cache
+# ==========================================
+sessions/
+.cache/
+cache/
+
+# ==========================================
+# Uploads & User Content (optional)
+# ==========================================
+# uploads/
+# public/uploads/
+# static/uploads/

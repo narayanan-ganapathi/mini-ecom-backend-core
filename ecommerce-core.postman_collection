@@ -1,0 +1,169 @@
+{
+  "info": {
+    "name": "Ecommerce Core API",
+    "_postman_id": "12345678-abcd-efgh-ijkl-1234567890ab",
+    "description": "Postman collection for Ecommerce Core project (REST + GraphQL).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "REST - Products",
+      "item": [
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Laptop\",\n  \"price\": 1200,\n  \"stock\": 10\n}"
+            },
+            "url": { "raw": "http://localhost:5000/api/products", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "products"] }
+          }
+        },
+        {
+          "name": "Get Products",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:5000/api/products", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "products"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "REST - Cart",
+      "item": [
+        {
+          "name": "Add to Cart",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"123\",\n  \"productId\": \"<PRODUCT_ID>\",\n  \"quantity\": 2\n}"
+            },
+            "url": { "raw": "http://localhost:5000/api/carts", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "carts"] }
+          }
+        },
+        {
+          "name": "Get Cart",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:5000/api/carts/123", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "carts", "123"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "REST - Orders",
+      "item": [
+        {
+          "name": "Place Order",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"123\",\n  \"items\": [{ \"productId\": \"<PRODUCT_ID>\", \"quantity\": 2 }]\n}"
+            },
+            "url": { "raw": "http://localhost:5000/api/orders", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "orders"] }
+          }
+        },
+        {
+          "name": "Get Orders",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "http://localhost:5000/api/orders/123", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["api", "orders", "123"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "GraphQL - Products",
+      "item": [
+        {
+          "name": "Get Products",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"{ products { id name price stock } }\"\n}"
+            },
+            "url": { "raw": "http://localhost:5000/graphql", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["graphql"] }
+          }
+        },
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"mutation { createProduct(name: \\\"Phone\\\", price: 800, stock: 5) { id name price stock } }\"\n}"
+            },
+            "url": { "raw": "http://localhost:5000/graphql", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["graphql"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "GraphQL - Cart",
+      "item": [
+        {
+          "name": "Add to Cart",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"mutation { addToCart(userId: \\\"123\\\", productId: \\\"<PRODUCT_ID>\\\", quantity: 2) { id userId items { productId quantity } } }\"\n}"
+            },
+            "url": { "raw": "http://localhost:5000/graphql", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["graphql"] }
+          }
+        },
+        {
+          "name": "Get Cart",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"{ cart(userId: \\\"123\\\") { id userId items { productId quantity } } }\"\n}"
+            },
+            "url": { "raw": "http://localhost:5000/graphql", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["graphql"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "GraphQL - Orders",
+      "item": [
+        {
+          "name": "Place Order",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"mutation { placeOrder(userId: \\\"123\\\", items: [{ productId: \\\"<PRODUCT_ID>\\\", quantity: 1 }]) { id userId items { productId quantity } } }\"\n}"
+            },
+            "url": { "raw": "http://localhost:5000/graphql", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["graphql"] }
+          }
+        },
+        {
+          "name": "Get Orders",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"{ orders(userId: \\\"123\\\") { id userId items { productId quantity } } }\"\n}"
+            },
+            "url": { "raw": "http://localhost:5000/graphql", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["graphql"] }
+          }
+        }
+      ]
+    }
+  ]
+}
