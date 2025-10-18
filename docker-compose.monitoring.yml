@@ -17,7 +17,8 @@ services:
       - --web.console.templates=/usr/share/prometheus/consoles
       - --web.enable-lifecycle
     depends_on:
-      - node-api
+      - node-api-1
+      - node-api-2
       - redis-exporter
       - postgres-exporter
       - mongodb-exporter
